@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv_cardbox">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/iv_cardbox"
+            android:src="@mipmap/ic_launcher"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"/>
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cardbox_name"
+            android:layout_toRightOf="@id/iv_cardbox"
+            android:textSize="15pt"
+            android:text="Cardbox name"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_delete_cardbox"
+            android:layout_below="@+id/bt_edit_cardbox"
+            android:layout_toRightOf="@+id/tv_cardbox_difficulty"
+            android:src="@android:drawable/ic_menu_delete"
+            />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_cardbox_difficulty"
+            android:layout_below="@+id/tv_cardbox_name"
+            android:text="Product difficulty"
+            android:textSize="10pt"
+            android:layout_marginLeft="20dp"
+            android:layout_toStartOf="@id/bt_edit_cardbox"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bt_edit_cardbox"
+            android:src="@android:drawable/ic_menu_edit"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/tv_cardbox_name"
+            android:layout_toEndOf="@+id/tv_cardbox_name" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
