@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WSVaso</string>
+    <string name="nombre">Nombre</string>
+    <string name="color">Color</string>
+    <string name="tamanio">Tamaño</string>
+    <string name="activo">Activo</string>
+    <string name="listar">Listar</string>
+    <string name="guardar">Guardar</string>
+    <string name="regresar">regresar</string>
+    <string name="item">item</string>
+    <string name="action_settings">Action settings</string>
+    <string name="eliminar">eliminar</string>
+    <string name="modificar">Modificar</string>
+</resources>
