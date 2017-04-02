@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="editBeca">
+    <complexType>
+     <sequence>
+      <element name="beca" type="impl:Beca"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Beca">
+    <sequence>
+     <element name="cantidad" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="persona" nillable="true" type="xsd:string"/>
+     <element name="personal" nillable="true" type="xsd:string"/>
+     <element name="tipo" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="editBecaResponse">
+    <complexType>
+     <sequence>
+      <element name="editBecaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addBeca">
+    <complexType>
+     <sequence>
+      <element name="beca" type="impl:Beca"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addBecaResponse">
+    <complexType>
+     <sequence>
+      <element name="addBecaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBecas">
+    <complexType/>
+   </element>
+   <element name="getBecasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getBecasReturn" type="impl:Beca"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeBeca">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeBecaResponse">
+    <complexType>
+     <sequence>
+      <element name="removeBecaReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneBeca">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneBecaResponse">
+    <complexType>
+     <sequence>
+      <element name="getOneBecaReturn" type="impl:Beca"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addBecaRequest">
+
+      <wsdl:part element="impl:addBeca" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addBecaResponse">
+
+      <wsdl:part element="impl:addBecaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBecasRequest">
+
+      <wsdl:part element="impl:getBecas" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneBecaResponse">
+
+      <wsdl:part element="impl:getOneBecaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editBecaRequest">
+
+      <wsdl:part element="impl:editBeca" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeBecaResponse">
+
+      <wsdl:part element="impl:removeBecaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeBecaRequest">
+
+      <wsdl:part element="impl:removeBeca" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editBecaResponse">
+
+      <wsdl:part element="impl:editBecaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneBecaRequest">
+
+      <wsdl:part element="impl:getOneBeca" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBecasResponse">
+
+      <wsdl:part element="impl:getBecasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BecasWS">
+
+      <wsdl:operation name="editBeca">
+
+         <wsdl:input message="impl:editBecaRequest" name="editBecaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editBecaResponse" name="editBecaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addBeca">
+
+         <wsdl:input message="impl:addBecaRequest" name="addBecaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addBecaResponse" name="addBecaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBecas">
+
+         <wsdl:input message="impl:getBecasRequest" name="getBecasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBecasResponse" name="getBecasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeBeca">
+
+         <wsdl:input message="impl:removeBecaRequest" name="removeBecaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeBecaResponse" name="removeBecaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneBeca">
+
+         <wsdl:input message="impl:getOneBecaRequest" name="getOneBecaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOneBecaResponse" name="getOneBecaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BecasWSSoapBinding" type="impl:BecasWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="editBeca">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editBecaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editBecaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addBeca">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addBecaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addBecaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBecas">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBecasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBecasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeBeca">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeBecaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeBecaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneBeca">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOneBecaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOneBecaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BecasWSService">
+
+      <wsdl:port binding="impl:BecasWSSoapBinding" name="BecasWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/BecasWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addMovie">
+    <complexType>
+     <sequence>
+      <element name="movie" type="impl:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Movie">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="price" type="xsd:float"/>
+     <element name="sinopsis" nillable="true" type="xsd:string"/>
+     <element name="type" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="addMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="addMovieReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMovies">
+    <complexType/>
+   </element>
+   <element name="getMoviesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getMoviesReturn" type="impl:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneMovie">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="getOneMovieReturn" type="impl:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="remuveMovie">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="remuveMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="remuveMovieReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editMovie">
+    <complexType>
+     <sequence>
+      <element name="movie" type="impl:Movie"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="editMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="editMovieReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="editMovieResponse">
+
+      <wsdl:part element="impl:editMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editMovieRequest">
+
+      <wsdl:part element="impl:editMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMoviesResponse">
+
+      <wsdl:part element="impl:getMoviesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="remuveMovieRequest">
+
+      <wsdl:part element="impl:remuveMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMovieRequest">
+
+      <wsdl:part element="impl:addMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMovieResponse">
+
+      <wsdl:part element="impl:addMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneMovieRequest">
+
+      <wsdl:part element="impl:getOneMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneMovieResponse">
+
+      <wsdl:part element="impl:getOneMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMoviesRequest">
+
+      <wsdl:part element="impl:getMovies" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="remuveMovieResponse">
+
+      <wsdl:part element="impl:remuveMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MoviesWS">
+
+      <wsdl:operation name="addMovie">
+
+         <wsdl:input message="impl:addMovieRequest" name="addMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addMovieResponse" name="addMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMovies">
+
+         <wsdl:input message="impl:getMoviesRequest" name="getMoviesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMoviesResponse" name="getMoviesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneMovie">
+
+         <wsdl:input message="impl:getOneMovieRequest" name="getOneMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOneMovieResponse" name="getOneMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="remuveMovie">
+
+         <wsdl:input message="impl:remuveMovieRequest" name="remuveMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:remuveMovieResponse" name="remuveMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editMovie">
+
+         <wsdl:input message="impl:editMovieRequest" name="editMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editMovieResponse" name="editMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MoviesWSSoapBinding" type="impl:MoviesWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMovies">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMoviesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMoviesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOneMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOneMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="remuveMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="remuveMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="remuveMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="editMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MoviesWSService">
+
+      <wsdl:port binding="impl:MoviesWSSoapBinding" name="MoviesWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/MoviesWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

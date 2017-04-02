@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.utng.edu.mx" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.utng.edu.mx" xmlns:intf="http://ws.utng.edu.mx" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.utng.edu.mx" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="editVaso">
+    <complexType>
+     <sequence>
+      <element name="vaso" type="impl:Vaso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Vaso">
+    <sequence>
+     <element name="activo" nillable="true" type="xsd:string"/>
+     <element name="color" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+     <element name="tamanio" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="editVasoResponse">
+    <complexType>
+     <sequence>
+      <element name="editVasoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeVaso">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="removeVasoResponse">
+    <complexType>
+     <sequence>
+      <element name="removeVasoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getVasos">
+    <complexType/>
+   </element>
+   <element name="getVasosResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getVasosReturn" type="impl:Vaso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneVaso">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getOneVasoResponse">
+    <complexType>
+     <sequence>
+      <element name="getOneVasoReturn" type="impl:Vaso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addVaso">
+    <complexType>
+     <sequence>
+      <element name="vaso" type="impl:Vaso"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addVasoResponse">
+    <complexType>
+     <sequence>
+      <element name="addVasoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="removeVasoRequest">
+
+      <wsdl:part element="impl:removeVaso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editVasoResponse">
+
+      <wsdl:part element="impl:editVasoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="removeVasoResponse">
+
+      <wsdl:part element="impl:removeVasoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneVasoResponse">
+
+      <wsdl:part element="impl:getOneVasoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVasoRequest">
+
+      <wsdl:part element="impl:addVaso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVasosRequest">
+
+      <wsdl:part element="impl:getVasos" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addVasoResponse">
+
+      <wsdl:part element="impl:addVasoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getOneVasoRequest">
+
+      <wsdl:part element="impl:getOneVaso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="editVasoRequest">
+
+      <wsdl:part element="impl:editVaso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVasosResponse">
+
+      <wsdl:part element="impl:getVasosResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="VasosWS">
+
+      <wsdl:operation name="editVaso">
+
+         <wsdl:input message="impl:editVasoRequest" name="editVasoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:editVasoResponse" name="editVasoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeVaso">
+
+         <wsdl:input message="impl:removeVasoRequest" name="removeVasoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:removeVasoResponse" name="removeVasoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVasos">
+
+         <wsdl:input message="impl:getVasosRequest" name="getVasosRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getVasosResponse" name="getVasosResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneVaso">
+
+         <wsdl:input message="impl:getOneVasoRequest" name="getOneVasoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getOneVasoResponse" name="getOneVasoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addVaso">
+
+         <wsdl:input message="impl:addVasoRequest" name="addVasoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addVasoResponse" name="addVasoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="VasosWSSoapBinding" type="impl:VasosWS">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="editVaso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="editVasoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="editVasoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="removeVaso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="removeVasoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="removeVasoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getVasos">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getVasosRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getVasosResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getOneVaso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getOneVasoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getOneVasoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addVaso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addVasoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addVasoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="VasosWSService">
+
+      <wsdl:port binding="impl:VasosWSSoapBinding" name="VasosWS">
+
+         <wsdlsoap:address location="http://localhost:8080/WSMovie/services/VasosWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

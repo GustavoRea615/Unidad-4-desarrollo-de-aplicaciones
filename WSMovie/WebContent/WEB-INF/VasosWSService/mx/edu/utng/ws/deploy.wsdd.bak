@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from VasosWSService WSDL service -->
+
+  <service name="VasosWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="VasosWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="VasosWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.VasosWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VasosWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="editVaso" qname="operNS:editVaso" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:editVasoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:vaso" xmlns:pns="http://ws.utng.edu.mx" type="tns:Vaso" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="removeVaso" qname="operNS:removeVaso" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeVasoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getVasos" qname="operNS:getVasos" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getVasosReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Vaso" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="getOneVaso" qname="operNS:getOneVaso" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getOneVasoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Vaso" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addVaso" qname="operNS:addVaso" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addVasoReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:vaso" xmlns:pns="http://ws.utng.edu.mx" type="tns:Vaso" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <parameter name="allowedMethods" value="removeVaso addVaso getOneVaso editVaso getVasos"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Vaso"
+        type="java:mx.edu.utng.ws.Vaso"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

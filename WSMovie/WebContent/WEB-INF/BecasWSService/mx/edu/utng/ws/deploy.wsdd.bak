@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BecasWSService WSDL service -->
+
+  <service name="BecasWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServiceElement" value="BecasWSService"/>
+      <parameter name="schemaQualified" value="http://ws.utng.edu.mx"/>
+      <parameter name="wsdlServicePort" value="BecasWS"/>
+      <parameter name="className" value="mx.edu.utng.ws.BecasWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="BecasWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="editBeca" qname="operNS:editBeca" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:editBecaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:beca" xmlns:pns="http://ws.utng.edu.mx" type="tns:Beca" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="addBeca" qname="operNS:addBeca" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:addBecaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:beca" xmlns:pns="http://ws.utng.edu.mx" type="tns:Beca" xmlns:tns="http://ws.utng.edu.mx"/>
+      </operation>
+      <operation name="getBecas" qname="operNS:getBecas" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getBecasReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Beca" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+      </operation>
+      <operation name="removeBeca" qname="operNS:removeBeca" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:removeBecaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getOneBeca" qname="operNS:getOneBeca" xmlns:operNS="http://ws.utng.edu.mx" returnQName="retNS:getOneBecaReturn" xmlns:retNS="http://ws.utng.edu.mx" returnType="rtns:Beca" xmlns:rtns="http://ws.utng.edu.mx" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://ws.utng.edu.mx" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addBeca getOneBeca removeBeca getBecas editBeca"/>
+
+      <typeMapping
+        xmlns:ns="http://ws.utng.edu.mx"
+        qname="ns:Beca"
+        type="java:mx.edu.utng.ws.Beca"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
