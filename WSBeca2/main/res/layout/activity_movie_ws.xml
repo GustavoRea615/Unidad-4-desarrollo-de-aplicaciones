@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_name"
+        android:inputType="text"
+        android:hint="@string/name"
+        />
+
+    <EditText
+        android:id="@+id/et_sinopsis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/sinopsis"
+        android:inputType="text" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_type"
+        android:inputType="number"
+        android:hint="@string/type"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_price"
+        android:inputType="numberDecimal"
+        android:hint="@string/price"
+
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/bt_save"
+            android:layout_width="@dimen/whidth_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_button"
+            android:background="@android:color/background_light"
+            android:text="@string/guardar"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/bt_list"
+            android:layout_width="@dimen/whidth_button"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_button"
+            android:background="@android:color/background_light"
+            android:text="@string/listar"
+            android:textColor="#000" />
+    </LinearLayout>
+</LinearLayout>
